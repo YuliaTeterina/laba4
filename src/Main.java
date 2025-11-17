@@ -11,9 +11,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Программа решения задач");
-        System.out.println("=======================");
-
         boolean running = true;
 
         while (running) {
@@ -35,22 +32,17 @@ public class Main {
                     System.out.println("\n==== Задание 1.1: Обобщенная коробка ====");
                     System.out.println("1. Коробка с числом 3");
 
-                    // Создаем коробку для целых чисел
                     Box<Integer> integerBox = new Box<>();
 
-                    // Проверяем, пуста ли коробка
                     System.out.println("Коробка пуста: " + !integerBox.isFull());
 
-                    // Размещаем число 3 в коробке
                     integerBox.put(3);
                     System.out.println("Положили число 3 в коробку");
                     System.out.println("Коробка пуста: " + !integerBox.isFull());
                     System.out.println("Информация: " + integerBox);
 
-                    // Передаем коробку в метод и извлекаем значение
                     processIntegerBox(integerBox);
 
-                    // Проверяем, что коробка пуста после извлечения
                     System.out.println("Коробка пуста после извлечения: " + !integerBox.isFull());
                     System.out.println("Информация после извлечения: " + integerBox);
 
