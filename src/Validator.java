@@ -3,6 +3,32 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Validator {
+
+    public static Integer inputIntegerWithNull(Scanner scanner, String prompt) {
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+
+        if (input.isEmpty() || input.equals("null")) {
+            return null;
+        }
+
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("Ошибка: введите число или 'null'");
+            return inputIntegerWithNull(scanner, prompt);
+        }
+    }
+
+    public static String inputStringWithNull(Scanner scanner, String prompt) {
+        System.out.print(prompt);
+        String input = scanner.nextLine().trim();
+        if (input.isEmpty() || input.equalsIgnoreCase("null")) {
+            return null;
+        }
+        return input;
+    }
+
     public static List<String> inputStringList(Scanner scanner) {
         System.out.print("Введите количество строк: ");
         int count = scanner.nextInt();
@@ -45,35 +71,5 @@ public class Validator {
             scanner.nextLine();
         }
         return arrays;
-    }
-
-    public static Integer inputIntegerWithNull(Scanner scanner, String prompt) {
-        System.out.print(prompt);
-        String input = scanner.nextLine().trim();
-        if (input.isEmpty() || input.equalsIgnoreCase("null")) {
-            return null;
-        }
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            System.out.println("Ошибка: введите целое число или 'null'");
-            return inputIntegerWithNull(scanner, prompt);
-        }
-    }
-
-    public static String inputStringWithNull(Scanner scanner, String prompt) {
-        System.out.print(prompt);
-        String input = scanner.nextLine().trim();
-        if (input.isEmpty() || input.equalsIgnoreCase("null")) {
-            return null;
-        }
-        return input;
-    }
-
-    public static int inputPositiveInteger(Scanner scanner, String prompt) {
-        System.out.print(prompt);
-        int value = scanner.nextInt();
-        scanner.nextLine();
-        return value;
     }
 }

@@ -30,67 +30,136 @@ public class Main {
             switch (choice) {
                 case 1:
                     System.out.println("\n==== Задание 1.1: Обобщенная коробка ====");
-                    System.out.println("1. Коробка с числом 3");
 
-                    Box<Integer> integerBox = new Box<>();
+                    System.out.println("Выберите тип данных:");
+                    System.out.println("1 - Целое число");
+                    System.out.println("2 - Строка");
+                    System.out.println("3 - Вещественное число");
+                    System.out.print("Ваш выбор: ");
 
-                    System.out.println("Коробка пуста: " + !integerBox.isFull());
+                    int userChoice = scanner.nextInt();
+                    scanner.nextLine();
 
-                    integerBox.put(3);
-                    System.out.println("Положили число 3 в коробку");
-                    System.out.println("Коробка пуста: " + !integerBox.isFull());
-                    System.out.println("Информация: " + integerBox);
+                    if (userChoice == 1) {
+                        Box<Integer> box = new Box<>();
 
-                    processIntegerBox(integerBox);
+                        System.out.println("\n1. Проверка пустой коробки:");
+                        System.out.println("Коробка пуста: " + !box.isFull());
 
-                    System.out.println("Коробка пуста после извлечения: " + !integerBox.isFull());
-                    System.out.println("Информация после извлечения: " + integerBox);
+                        System.out.print("\nВведите целое число: ");
+                        int value1 = scanner.nextInt();
+                        scanner.nextLine();
 
-                    System.out.println("\n2. Попытка положить второй объект в заполненную коробку");
-                    Box<String> stringBox = new Box<>();
-                    stringBox.put("Первый объект");
-                    System.out.println("Положили первый объект в коробку");
+                        System.out.println("\n2. Кладем число в коробку:");
+                        box.put(value1);
+                        System.out.println("Коробка после помещения: " + box);
+                        System.out.println("Коробка пуста: " + !box.isFull());
 
-                    try {
-                        stringBox.put("Второй объект");
-                    } catch (IllegalStateException e) {
-                        System.out.println("Ошибка: " + e.getMessage());
+                        System.out.print("\nВведите второе целое число: ");
+                        int value2 = scanner.nextInt();
+                        scanner.nextLine();
+
+                        System.out.println("\n3. Пытаемся положить второе число:");
+                        try {
+                            box.put(value2);
+                            System.out.println("Успешно положили второе число");
+                        } catch (IllegalStateException e) {
+                            System.out.println("Ошибка: " + e.getMessage());
+                        }
+
+                        System.out.println("\n4. Извлекаем число из коробки:");
+                        Integer result = box.get();
+                        System.out.println("Извлекли: " + result);
+                        System.out.println("Коробка после извлечения: " + box);
+                        System.out.println("Коробка пуста: " + !box.isFull());
+
+                    } else if (userChoice == 2) {
+                        Box<String> box = new Box<>();
+
+                        System.out.println("\n1. Проверка пустой коробки:");
+                        System.out.println("Коробка пуста: " + !box.isFull());
+
+                        System.out.print("\nВведите строку: ");
+                        String value1 = scanner.nextLine();
+
+                        System.out.println("\n2. Кладем строку в коробку:");
+                        box.put(value1);
+                        System.out.println("Коробка после помещения: " + box);
+                        System.out.println("Коробка пуста: " + !box.isFull());
+
+                        System.out.print("\nВведите вторую строку: ");
+                        String value2 = scanner.nextLine();
+
+                        System.out.println("\n3. Пытаемся положить вторую строку:");
+                        try {
+                            box.put(value2);
+                            System.out.println("Успешно положили вторую строку");
+                        } catch (IllegalStateException e) {
+                            System.out.println("Ошибка: " + e.getMessage());
+                        }
+
+                        System.out.println("\n4. Извлекаем строку из коробки:");
+                        String result = box.get();
+                        System.out.println("Извлекли: " + result);
+                        System.out.println("Коробка после извлечения: " + box);
+                        System.out.println("Коробка пуста: " + !box.isFull());
+
+                    } else if (userChoice == 3) {
+                        Box<Double> box = new Box<>();
+
+                        System.out.println("\n1. Проверка пустой коробки:");
+                        System.out.println("Коробка пуста: " + !box.isFull());
+
+                        System.out.print("\nВведите вещественное число: ");
+                        double value1 = scanner.nextDouble();
+                        scanner.nextLine();
+
+                        System.out.println("\n2. Кладем число в коробку:");
+                        box.put(value1);
+                        System.out.println("Коробка после помещения: " + box);
+                        System.out.println("Коробка пуста: " + !box.isFull());
+
+                        System.out.print("\nВведите второе вещественное число: ");
+                        double value2 = scanner.nextDouble();
+                        scanner.nextLine();
+
+                        System.out.println("\n3. Пытаемся положить второе число:");
+                        try {
+                            box.put(value2);
+                            System.out.println("Успешно положили второе число");
+                        } catch (IllegalStateException e) {
+                            System.out.println("Ошибка: " + e.getMessage());
+                        }
+
+                        System.out.println("\n4. Извлекаем число из коробки:");
+                        Double result = box.get();
+                        System.out.println("Извлекли: " + result);
+                        System.out.println("Коробка после извлечения: " + box);
+                        System.out.println("Коробка пуста: " + !box.isFull());
+
+                    } else {
+                        System.out.println("Неверный выбор");
                     }
                     break;
 
                 case 2:
                     System.out.println("\n==== Задание 1.2: Без null ====");
-                    System.out.println("1. Хранилище чисел с null");
+                    scanner.nextLine();
+
+                    System.out.println("\nХранилище чисел");
+
 
                     Integer number1 = Validator.inputIntegerWithNull(scanner, "Введите основное число: ");
-                    Integer number2 = Validator.inputIntegerWithNull(scanner, "Альтернативное значение (для первой проверки 0): ");
+                    Integer number2 = Validator.inputIntegerWithNull(scanner, "Альтернативное значение: ");
                     Storage<Integer> numberStorage1 = new Storage<>(number1, number2);
 
                     numberStorage1.printValue();
                     System.out.println("Информация: " + numberStorage1);
 
-                    System.out.println("\n2. Хранилище чисел со значением 99");
-
-                    Integer number3 = Validator.inputIntegerWithNull(scanner, "Введите основное число: ");
-                    Integer number4 = Validator.inputIntegerWithNull(scanner, "Альтернативное значение (для первой проверки -1): ");
-                    Storage<Integer> numberStorage2 = new Storage<>(number3, number4);
-
-                    numberStorage2.printValue();
-                    System.out.println("Информация: " + numberStorage2);
-
-                    System.out.println("\n3. Хранилище строк с null");
-
-                    String string1 = Validator.inputStringWithNull(scanner, "Введите основную строку: ");
-                    String string2 = Validator.inputStringWithNull(scanner, "Введите альтернативную строку(default): ");
-                    Storage<String> stringStorage1 = new Storage<>(string1, string2);
-
-                    stringStorage1.printValue();
-                    System.out.println("Информация: " + stringStorage1);
-
-                    System.out.println("\n4. Хранилище строк со значением 'hello'");
+                    System.out.println("\nХранилище строк");
 
                     String string3 = Validator.inputStringWithNull(scanner, "Введите основную строку: ");
-                    String string4 = Validator.inputStringWithNull(scanner, "Введите альтернативную строку(default): ");
+                    String string4 = Validator.inputStringWithNull(scanner, "Введите альтернативную строку: ");
                     Storage<String> stringStorage2 = new Storage<>(string3, string4);
 
                     stringStorage2.printValue();
@@ -102,7 +171,7 @@ public class Main {
 
                     java.util.List<Box<? extends Number>> boxes = new java.util.ArrayList<>();
 
-                    System.out.println("Сколько коробок с числами вы хотите создать?");
+                    System.out.println("Введите количество коробок с числами: ");
                     int boxCount = scanner.nextInt();
                     scanner.nextLine();
 

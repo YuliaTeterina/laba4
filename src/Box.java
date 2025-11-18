@@ -11,7 +11,7 @@ public class Box<T> {
 
     public void put(T value) {
         if (isFull()) {
-            throw new IllegalStateException("Коробка уже заполнена! Нельзя положить новый объект.");
+            throw new IllegalStateException("Коробка уже заполнена!");
         }
         this.value = value;
     }
