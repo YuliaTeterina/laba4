@@ -21,19 +21,21 @@
 * Конструктор по умолчанию инициализирует value как null
 
 2. Реализация методов:
-* isFull(): проверяет, не равен ли value null
+* isFull(): возвращает true если value не null (коробка заполнена)
 * put(T value): если коробка пуста - сохраняет объект, иначе бросает исключение
-* get(): извлекает объект и обнуляет поле value
-* peek(): возвращает объект без извлечения
+* get(): извлекает объект и обнуляет поле value (коробка становится пустой)
+* peek(): возвращает объект без извлечения (коробка остается заполненной)
 
 3. Использование в main:
-* Создаем коробку для Integer
-* Проверяем пустоту коробки
-* Кладем число
-* Передаем в метод processIntegerBox
-* Извлекаем и выводим значение
-* Демонстрируем исключение при попытке положить второй объект
+* Пользователь выбирает тип данных (целое число, строка, вещественное число)
+* Создается коробка выбранного типа
+* Показывается начальное состояние пустой коробки
+* Пользователь вводит первый объект, он помещается в коробку
+* Пользователь вводит второй объект, демонстрируется исключение
+* Первый объект извлекается из коробки методом
+* Показывается что коробка стала пустой после извлечения
 ### Пример решения задачи
+<img width="425" height="691" alt="image" src="https://github.com/user-attachments/assets/5d1a5385-d1e7-4254-aa2e-5f1b43689770" />
 
 ### Задача 2
 Без null.  
@@ -64,12 +66,20 @@
 * getValue(): возвращает value если не null, иначе alternative
 * printValue(): выводит полученное значение
 
-3. Четыре сценария использования:
-* Числа с null → альтернатива 0
-* Число 99 → альтернатива -1
-* Строки с null → альтернатива "default"
-* Строка "hello" → альтернатива "hello world"
+3. Демонстрация в main:
+1) Создание хранилища для чисел:
+* Ввод основного числа (может быть null)
+* Ввод альтернативного числа
+* Создание Storage<Integer>
+* Вывод значения и информации
+
+2) Создание хранилища для строк:
+* Ввод основной строки (может быть null)
+* Ввод альтернативной строки
+* Создание Storage<String>
+* Вывод значения и информации
 ### Пример решения задачи
+<img width="577" height="352" alt="image" src="https://github.com/user-attachments/assets/be74f61c-9ca5-47f2-9d9e-81b72bbc2dc0" />
 
 # Задание 2
 ### Задача 2
@@ -92,6 +102,7 @@
 * Вводит конкретные значения
 * Выводится максимальное значение среди всех коробок
 ### Пример решения задачи
+<img width="288" height="794" alt="image" src="https://github.com/user-attachments/assets/69359170-734a-488b-a415-423419f05b54" />
 
 # Задание 3
 ### Задача 1
@@ -118,6 +129,9 @@
 * Числа → абсолютные значения: Math::abs
 * Массивы → максимумы: лямбда для поиска max в массиве
 ### Пример решения задачи
+<img width="383" height="203" alt="image" src="https://github.com/user-attachments/assets/176a9942-d42e-42e9-89e3-5d3072964ca1" />
+<img width="410" height="201" alt="image" src="https://github.com/user-attachments/assets/aee12bfa-7fcc-49bc-b9c5-25353812e476" />
+<img width="448" height="558" alt="image" src="https://github.com/user-attachments/assets/829216dd-6ad7-4c54-9879-9c93ec71ef21" />
 
 ### Задача 2
 Фильтр.  
@@ -137,11 +151,15 @@
 * Создает новый List<T>
 * Добавляет только элементы, удовлетворяющие условию
 * Возвращает отфильтрованный список
+* 
 2. Три сценария использования:
 * Строки длиной ≥ 3: str -> str.length() >= 3
 * Положительные числа: x -> x > 0
 * Массивы без положительных элементов: проверка всех элементов
 ### Пример решения задачи
+<img width="375" height="202" alt="image" src="https://github.com/user-attachments/assets/612c3bb1-fac9-4712-b1c7-4bd9b3a34f99" />
+<img width="427" height="202" alt="image" src="https://github.com/user-attachments/assets/77e1769c-ef18-49b8-978f-c05347d31ccd" />
+<img width="588" height="580" alt="image" src="https://github.com/user-attachments/assets/15f2fbf4-40ce-46f1-819c-a842f2a0a87c" />
 
 ### Задача 3
 Сокращение.  
@@ -171,6 +189,9 @@
 * Сумма чисел: Integer::sum
 * Общее количество элементов: сначала получаем длины массивов, потом суммируем
 ### Пример решения задачи
+<img width="349" height="171" alt="image" src="https://github.com/user-attachments/assets/3b38e3dd-810a-46b0-b9af-e88a9732e9ae" />
+<img width="278" height="173" alt="image" src="https://github.com/user-attachments/assets/80bba772-53b7-4109-8a08-0ec1a6fb26de" />
+<img width="383" height="452" alt="image" src="https://github.com/user-attachments/assets/fd65ca0f-6ec5-4179-bec6-12c74f479a68" />
 
 ### Задача 4
 Коллекционирование.  
@@ -201,3 +222,8 @@
 * Группировка строк по длине: создаем Map<Integer, List<String>>
 * Уникальные строки: используем HashSet для автоматического удаления дубликатов
 ### Пример решения задачи
+<img width="287" height="201" alt="image" src="https://github.com/user-attachments/assets/87e4ed7c-bdfc-4156-a27a-6b57c0b90e9a" />
+<img width="537" height="189" alt="image" src="https://github.com/user-attachments/assets/65c7784c-a5ae-4e50-871d-df03bf682978" />
+<img width="439" height="201" alt="image" src="https://github.com/user-attachments/assets/1daa2902-9e59-42f0-b188-0257c12ddd32" />
+
+
